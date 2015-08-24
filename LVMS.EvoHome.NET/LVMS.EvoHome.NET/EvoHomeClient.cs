@@ -20,7 +20,7 @@ namespace LVMS.EvoHome
         /// <param name="apiUrl">Endpoint address of the EvoHome REST API</param>
         public EvoHomeClient(string apiUrl)
         {
-            
+            // todo
         }
 
         /// <summary>
