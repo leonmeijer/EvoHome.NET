@@ -16,6 +16,7 @@ namespace LVMS.EvoHome
         protected Guid AppId = Guid.Parse("91db1612-73fd-4500-91b2-e63b069b185c");
         private RestClient _httpClient;
         internal Guid SessionId;
+        internal int UserId;
         private bool _initialized;
         internal bool UsePollyTransientFaultHandling;
 
@@ -61,6 +62,11 @@ namespace LVMS.EvoHome
             var session = await _httpClient.ExecuteWithPolicyAsync<Session>(this, initRequest, byPassCheckInitialized: true);
             if (session.SessionId.Equals(Guid.Empty))
                 throw new CannotInitializeSessionException();
+
+            if (session.UserInfo == null)
+                throw new CannotInitializeSessionException();
+
+            UserId = session.UserInfo.UserId;
 
             // Save the SessionId, because we pass this as Cookie value to all future requests
             SessionId = session.SessionId;

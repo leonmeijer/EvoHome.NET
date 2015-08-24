@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace LVMS.EvoHome.Model
 {
-    public class Location
+    public class EvoHomeData
     {
         public int LocationId { get; set; }
         public string Name { get; set; }
@@ -13,11 +14,13 @@ namespace LVMS.EvoHome.Model
         public string Zipcode { get; set; }
         public string Type { get; set; }
         public bool HasStation { get; set; }
+        [JsonProperty("devices")]
         public List<Device> Devices { get; set; }
-        public List<object> OneTouchButtons { get; set; }
+        
         public bool DaylightSavingTimeEnabled { get; set; }
         public TimeZone TimeZone { get; set; }
         public bool OneTouchActionsSuspended { get; set; }
+        [JsonProperty("evoTouchSystemsStatus")]
         public List<EvoTouchSystemsStatus> EvoTouchSystemsStatus { get; set; }
         public bool IsLocationOwner { get; set; }
         public int LocationOwnerId { get; set; }

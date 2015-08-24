@@ -29,6 +29,17 @@ namespace LVMS.EvoHome.TestClient
             var client = new EvoHomeClient();
             await client.LoginAsync(credentials.UserName, credentials.Password);
             Console.WriteLine("Connected.");
+
+            var allData = await client.GetAllDataAsync();
+
+            var status = await client.GetStatusAsync(allData);
+            var devices = await client.GetDevices(allData);
+
+            Console.WriteLine("Current Status: " + status.QuickAction);
+            foreach (var device in devices)
+                Console.WriteLine("Name: {0}, Indoor Temp: {1}", device.Name, device.Thermostat.IndoorTemperature);
+
+            Console.ReadLine();
         }
 
         /// <summary>
