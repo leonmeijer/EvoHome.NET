@@ -71,7 +71,7 @@ namespace LVMS.EvoHome
 
             if (!byPassCheckInitialized)
                 evoHomeClient.CheckInitialized();
-            restRequest.AddHeader("Cookie", "JSESSIONID=" + evoHomeClient.Jessionid);
+            restRequest.AddHeader("Cookie", "JSESSIONID=" + evoHomeClient.SessionId);
         }
 
         private static async Task<RestResponse<T>> SendRequestAndCheckForException<T>(RestClient restClient, RestRequest restRequest,

@@ -26,7 +26,7 @@ namespace LVMS.EvoHome.TestClient
             var credentials = GetCredentials();
             Console.WriteLine("Connecting...");
 
-            var client = new EvoHomeClient("");
+            var client = new EvoHomeClient();
             await client.LoginAsync(credentials.UserName, credentials.Password);
             Console.WriteLine("Connected.");
         }

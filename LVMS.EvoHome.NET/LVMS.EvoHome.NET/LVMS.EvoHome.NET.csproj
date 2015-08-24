@@ -50,8 +50,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\AuthenticationFailureException.cs" />
+    <Compile Include="Exceptions\CannotInitializeSessionException.cs" />
     <Compile Include="Exceptions\RequestFailedException.cs" />
     <Compile Include="Exceptions\EvoHomeException.cs" />
+    <Compile Include="Model\AlertSettings.cs" />
+    <Compile Include="Model\ChangeableValues.cs" />
+    <Compile Include="Model\Device.cs" />
+    <Compile Include="Model\EvoTouchSystemsStatus.cs" />
+    <Compile Include="Model\HeatSetpoint.cs" />
+    <Compile Include="Model\Location.cs" />
+    <Compile Include="Model\Login.cs" />
+    <Compile Include="Model\Session.cs" />
+    <Compile Include="Model\Thermostat.cs" />
+    <Compile Include="Model\TimeZone.cs" />
+    <Compile Include="Model\UserInfo.cs" />
     <Compile Include="TransientExceptionHandler.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="EvoHomeClient.cs" />
@@ -103,7 +115,6 @@
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Enums\" />
-    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
